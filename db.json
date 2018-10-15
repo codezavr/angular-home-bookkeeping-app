@@ -8,24 +8,24 @@
     }
   ],
   "bill": {
-    "value": 100000,
-    "currency": "RUB"
+    "value": 5000,
+    "currency": "USD"
   },
   "categories": [
     {
-      "name": "Дом",
-      "capacity": 15000,
+      "name": "Home",
+      "capacity": 2000,
       "id": 1
     },
     {
-      "name": "Еда",
-      "capacity": 10000,
+      "name": "Food",
+      "capacity": 500,
       "id": 2
     },
     {
       "id": 3,
-      "name": "Машина",
-      "capacity": 7000
+      "name": "Car",
+      "capacity": 1000
     }
   ],
   "events": [
