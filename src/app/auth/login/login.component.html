@@ -1,4 +1,4 @@
-<p class="text-xs-center">Войдите для работы</p>
+<p class="text-xs-center">Sing in</p>
 <div class="alert alert-{{message.type}}"
      *ngIf="message.text"
 >
@@ -11,39 +11,39 @@
       type="text"
       class="form-control underlined"
       id="email"
-      placeholder="Введите ваш email"
+      placeholder="Enter email"
       formControlName="email"
     >
     <span
       class="form-help-text"
       *ngIf="form.get('email').invalid && form.get('email').touched">
       <span
-        *ngIf="form.get('email')['errors'] && form.get('email')['errors']['required']">Email не может быть пустым</span>
-      <span *ngIf="form.get('email')['errors'] && form.get('email')['errors']['email']">Введите корректный email</span>
+        *ngIf="form.get('email')['errors'] && form.get('email')['errors']['required']">Email is required</span>
+      <span *ngIf="form.get('email')['errors'] && form.get('email')['errors']['email']">Email is not valid</span>
     </span>
   </div>
   <div class="form-group" [ngClass]="{ 'has-error': form.get('password').invalid && form.get('password').touched }">
-    <label for="password">Пароль</label>
+    <label for="password">Password</label>
     <input
       type="password"
       class="form-control underlined"
       id="password"
-      placeholder="Пароль"
+      placeholder="Enter password"
       formControlName="password"
     >
     <span
       class="form-help-text"
       *ngIf="form.get('email').invalid && form.get('password').touched">
-      <span *ngIf="form.get('password')['errors'] && form.get('password')['errors']['required']">Пароль не может быть пустым</span>
-      <span *ngIf="form.get('password')['errors'] && form.get('password')['errors']['minlength']">Минимальная длинна пароля {{this.form.get('password')['errors']['minlength']['requiredLength']}} символов. Сейчас {{this.form.get('password')['errors']['minlength']['actualLength']}}</span>
+      <span *ngIf="form.get('password')['errors'] && form.get('password')['errors']['required']">Password is required</span>
+      <span *ngIf="form.get('password')['errors'] && form.get('password')['errors']['minlength']">Password min length is {{this.form.get('password')['errors']['minlength']['requiredLength']}} symbols. Now it's {{this.form.get('password')['errors']['minlength']['actualLength']}}</span>
     </span>
   </div>
   <div class="form-group">
-    <button type="submit" class="btn btn-block btn-primary" [disabled]="form.invalid">Войти</button>
+    <button type="submit" class="btn btn-block btn-primary" [disabled]="form.invalid">Sing in</button>
   </div>
   <div class="form-group">
     <p class="text-muted text-xs-center">
-      Нет аккаунта? <a routerLink="/registration">Зарегистрироваться!</a>
+      Don't Have an Account? <a routerLink="/registration">Register!</a>
     </p>
   </div>
 </form>

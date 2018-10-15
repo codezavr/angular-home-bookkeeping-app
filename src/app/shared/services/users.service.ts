@@ -16,4 +16,11 @@ export class UsersService {
         map((user: User[]) => user[0] ? user[0] : undefined),
       );
   }
+
+  public createNewUser(user: User): Observable<User> {
+    return this.http.post<User>(`http://localhost:3000/users`, user)
+      .pipe(
+        map((response: Response) => response)
+      );
+  }
 }
