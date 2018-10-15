@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../shared/models/user.model';
 import { UsersService } from '../../shared/services/users.service';
 import { Router } from '@angular/router';
@@ -18,10 +18,25 @@ export class RegistrationComponent implements OnInit {
 
   public ngOnInit() {
     this.form = this.fb.group({
-      email: this.fb.control('', [Validators.required, Validators.email]),
+      email: this.fb.control('', [Validators.required, Validators.email], this.forbiddenEmails.bind(this)),
       password: this.fb.control('', [Validators.required, Validators.minLength(6)]),
       name: this.fb.control('', Validators.required),
       agree: this.fb.control(false, Validators.requiredTrue)
+    });
+  }
+
+  public forbiddenEmails(control: FormControl): Promise<any> {
+    return new Promise((resolve) => {
+      this.usersService.getUserByEmail(control.value)
+        .subscribe((user: User) => {
+        if (user) {
+          resolve({
+            forbiddenEmail: true
+          });
+        } else {
+          resolve(null);
+        }
+      });
     });
   }
 
