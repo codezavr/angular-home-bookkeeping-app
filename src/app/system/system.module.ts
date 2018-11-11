@@ -13,9 +13,11 @@ import { DropDownDirective } from './shared/directives/dropdown.directive';
 import { BillCardComponent } from './bill-page/bill-card/bill-card.component';
 import { CurrencyCardComponent } from './bill-page/currency-card/currency-card.component';
 import { BillService } from './shared/services/bill.service';
+import { MomentPipe } from './shared/pipes/moment.pipe';
 
 @NgModule({
   declarations: [
+    MomentPipe,
     SystemComponent,
     BillPageComponent,
     HistoryPageComponent,
